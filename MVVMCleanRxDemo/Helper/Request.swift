@@ -19,6 +19,12 @@ protocol Request {
     var headers: [String: String] { get }
     var params: Encodable? { get }
     var urlParams: Encodable? { get }
-    var ignoreCache: Bool { get }
     var method: RequestMethod { get }
+}
+
+extension Request {
+    func createUrlRequest() -> URLRequest {
+        //Mock
+        return URLRequest(url: URL(string: self.host)!)
+    }
 }
