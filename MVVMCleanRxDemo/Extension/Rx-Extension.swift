@@ -197,3 +197,19 @@ extension ObservableType {
             .map { $0! }
     }
 }
+
+extension Observable {
+    static func create(_ closure: @escaping () async throws -> Element) -> Observable<Element> {
+        Observable.create { observer in
+            let task = Task {
+                do {
+                    observer.on(.next(try await closure()))
+                    observer.on(.completed)
+                } catch {
+                    observer.on(.error(error))
+                }
+            }
+            return Disposables.create { task.cancel() }
+        }
+    }
+}

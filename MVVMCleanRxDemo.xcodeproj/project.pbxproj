@@ -20,13 +20,14 @@
 		1C85AC1F2A8369D00001B43D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC1E2A8369D00001B43D /* Configuration.swift */; };
 		1C85AC222A8378A50001B43D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC212A8378A50001B43D /* APIManager.swift */; };
 		1C85AC242A837FEB0001B43D /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC232A837FEB0001B43D /* DataParser.swift */; };
+		1C85AC272A84BAB50001B43D /* GetFoodListUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC262A84BAB50001B43D /* GetFoodListUsecase.swift */; };
 		1CC0F5FF2A821CAE008F5E51 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F5FD2A821CAE008F5E51 /* FoodListViewController.swift */; };
 		1CC0F6002A821CAE008F5E51 /* FoodListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC0F5FE2A821CAE008F5E51 /* FoodListViewController.xib */; };
 		1CC0F6022A821DEF008F5E51 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F6012A821DEF008F5E51 /* HomeViewModel.swift */; };
 		1CC0F6052A822338008F5E51 /* Rx-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F6042A822338008F5E51 /* Rx-Extension.swift */; };
 		1CC0F6092A82509F008F5E51 /* FoodModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F6082A82509F008F5E51 /* FoodModelResponse.swift */; };
 		1CC0F60B2A82533F008F5E51 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F60A2A82533F008F5E51 /* FoodType.swift */; };
-		1CC0F60E2A825372008F5E51 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F60D2A825372008F5E51 /* Network.swift */; };
+		1CC0F60E2A825372008F5E51 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F60D2A825372008F5E51 /* HttpRequestManager.swift */; };
 		1CC0F6102A825414008F5E51 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0F60F2A825414008F5E51 /* Request.swift */; };
 		2FDA710BC479593529E48B82 /* Pods_MVVMCleanRxDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F04037EAC1CF2BD7DEDF442 /* Pods_MVVMCleanRxDemo.framework */; };
 /* End PBXBuildFile section */
@@ -66,13 +67,14 @@
 		1C85AC1E2A8369D00001B43D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1C85AC212A8378A50001B43D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1C85AC232A837FEB0001B43D /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		1C85AC262A84BAB50001B43D /* GetFoodListUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListUsecase.swift; sourceTree = "<group>"; };
 		1CC0F5FD2A821CAE008F5E51 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		1CC0F5FE2A821CAE008F5E51 /* FoodListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodListViewController.xib; sourceTree = "<group>"; };
 		1CC0F6012A821DEF008F5E51 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1CC0F6042A822338008F5E51 /* Rx-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx-Extension.swift"; sourceTree = "<group>"; };
 		1CC0F6082A82509F008F5E51 /* FoodModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModelResponse.swift; sourceTree = "<group>"; };
 		1CC0F60A2A82533F008F5E51 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
-		1CC0F60D2A825372008F5E51 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1CC0F60D2A825372008F5E51 /* HttpRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
 		1CC0F60F2A825414008F5E51 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		47C2A719DF2EFEB0C066DA9A /* Pods-MVVMCleanRxDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMCleanRxDemo.release.xcconfig"; path = "Target Support Files/Pods-MVVMCleanRxDemo/Pods-MVVMCleanRxDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9F04037EAC1CF2BD7DEDF442 /* Pods_MVVMCleanRxDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMCleanRxDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,11 +189,19 @@
 		1C85AC202A8376B60001B43D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1CC0F60D2A825372008F5E51 /* Network.swift */,
+				1CC0F60D2A825372008F5E51 /* HttpRequestManager.swift */,
 				1C85AC212A8378A50001B43D /* APIManager.swift */,
 				1C85AC232A837FEB0001B43D /* DataParser.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1C85AC252A84BA910001B43D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				1C85AC262A84BAB50001B43D /* GetFoodListUsecase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		1CC0F5F92A821C0D008F5E51 /* Resource */ = {
@@ -226,6 +236,7 @@
 		1CC0F5FC2A821C95008F5E51 /* FoodList */ = {
 			isa = PBXGroup;
 			children = (
+				1C85AC252A84BA910001B43D /* UseCase */,
 				1CC0F5FD2A821CAE008F5E51 /* FoodListViewController.swift */,
 				1CC0F5FE2A821CAE008F5E51 /* FoodListViewController.xib */,
 			);
@@ -466,9 +477,10 @@
 				1CC0F60B2A82533F008F5E51 /* FoodType.swift in Sources */,
 				1CC0F5FF2A821CAE008F5E51 /* FoodListViewController.swift in Sources */,
 				1C85AC1F2A8369D00001B43D /* Configuration.swift in Sources */,
-				1CC0F60E2A825372008F5E51 /* Network.swift in Sources */,
+				1CC0F60E2A825372008F5E51 /* HttpRequestManager.swift in Sources */,
 				1CC0F6052A822338008F5E51 /* Rx-Extension.swift in Sources */,
 				1CC0F6102A825414008F5E51 /* Request.swift in Sources */,
+				1C85AC272A84BAB50001B43D /* GetFoodListUsecase.swift in Sources */,
 				1C85AC222A8378A50001B43D /* APIManager.swift in Sources */,
 				1CC0F6022A821DEF008F5E51 /* HomeViewModel.swift in Sources */,
 				1C85AC242A837FEB0001B43D /* DataParser.swift in Sources */,

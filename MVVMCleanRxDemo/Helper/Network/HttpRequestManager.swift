@@ -10,17 +10,18 @@ import Foundation
 enum NetworkError: Error {
     case invalidServerResponse
     case invalidStatusCode(statusCode: Int)
+    case error(statusCode: Int, data: Data)
 }
 
 protocol HttpRequestManager {
-    func perform<T: Decodable, E: Decodable>(_ request: Request) async throws -> Result<T, E>
+    func perform<T: Decodable>(_ request: Request) async throws -> T
 }
 
 public struct HttpRequestManagerImpl: HttpRequestManager {
     let apiManager: APIManager
     let parser: DataParser
     
-    func perform<T, E>(_ request: Request) async throws -> Result<T, E> where T : Decodable, E : Decodable, E : Error {
+    func perform<T: Decodable>(_ request: Request) async throws -> T {
         let (data, response) = try await apiManager.perform(request)
         guard let response = response as? HTTPURLResponse else {
             throw NetworkError.invalidServerResponse
@@ -28,10 +29,9 @@ public struct HttpRequestManagerImpl: HttpRequestManager {
         switch response.statusCode {
             case (200...299):
                 let entity: T = try await parser.parse(data)
-            return Result.success(entity)
+            return entity
             case (400...599):
-                let entity: E = try await parser.parse(data)
-            return Result.failure(entity)
+            throw NetworkError.error(statusCode: response.statusCode, data: data)
         default:
             throw NetworkError.invalidStatusCode(statusCode: response.statusCode)
         }

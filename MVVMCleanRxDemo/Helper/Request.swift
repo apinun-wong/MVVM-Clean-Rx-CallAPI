@@ -25,6 +25,6 @@ protocol Request {
 extension Request {
     func createUrlRequest() -> URLRequest {
         //Mock
-        return URLRequest(url: URL(string: self.host)!)
+        return URLRequest(url: URL(string: "\(self.host)\(self.path)")!)
     }
 }

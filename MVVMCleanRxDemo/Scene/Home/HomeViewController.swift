@@ -10,8 +10,14 @@ import RxSwift
 import RxCocoa
 
 class HomeViewController: UIViewController {
-    var viewModel: HomeViewModel!
     let bag = DisposeBag()
+    var viewModel: HomeViewModel!
+    
+    public override func loadView() {
+        super.loadView()
+        bindInput()
+        bindOutput()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +25,14 @@ class HomeViewController: UIViewController {
     }
 
     private func bindInput() {
-        rx.viewDidLoad.bind(to: viewModel.input.viewDidLoad).disposed(by: bag)
+        rx.viewDidLoad.bind(to: self.viewModel.input.viewDidLoad).disposed(by: bag)
+        rx.viewWillAppear.bind(to: self.viewModel.input.viewWillAppear).disposed(by: bag)
     }
     
     private func bindOutput() {
+        viewModel.output.updateTypeOfFood.drive(onNext: { items in
+            print("updateTypeOfFood\(items)")
+        }).disposed(by: bag)
     }
 }
 
