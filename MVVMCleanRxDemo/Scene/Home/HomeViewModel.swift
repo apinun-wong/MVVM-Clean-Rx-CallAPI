@@ -15,7 +15,8 @@ protocol HomeInput {
 }
 
 protocol HomeOutput {
-    var updateTypeOfFood: Driver<[FoodModelResponse]> { get set }
+    var updateTypeOfFood: Driver<HomeSectionType> { get set }
+    func getItemsFromMenu(index: Int) -> [FoodData]
 }
 
 protocol HomeViewModel: HomeInput, HomeOutput {
@@ -34,7 +35,9 @@ final class HomeViewModelImpl: HomeViewModel {
     var viewWillAppear: PublishRelay<Void> = .init()
     
     // Output
-    var updateTypeOfFood: Driver<[FoodModelResponse]> = .empty()
+    var updateTypeOfFood: Driver<HomeSectionType> = .empty()
+    
+    var items: BehaviorRelay<[FoodModelResponse]> = .init(value: [])
     
     init(getFoodListUsecase: GetFoodListUsecase) {
         let getFoodListEvent = viewDidLoad
@@ -48,10 +51,26 @@ final class HomeViewModelImpl: HomeViewModel {
         let foodListError = getFoodListEvent.errors()
         
         updateTypeOfFood = foodListComplete
+            .map({ items in
+                var menuItems = [HomeItemType]()
+                for (index, item) in items.enumerated() {
+                    menuItems.append(HomeItemType(id: "\(index)", title: item.typeName))
+                }
+                return HomeSectionType(id: 0, item: menuItems)
+            })
             .asDriver(onErrorDriveWith: .empty())
+        
+        foodListComplete
+            .bind(to: items)
+            .disposed(by: bag)
                 
         viewWillAppear
             .subscribe()
             .disposed(by: bag)
+    }
+    
+    func getItemsFromMenu(index: Int) -> [FoodData] {
+        let section = items.value[index]
+        return section.data
     }
 }
