@@ -14,6 +14,13 @@ final class FoodListViewController: UIViewController {
     var dataSource: UITableViewDiffableDataSource<FoodListSectionType, FoodListItemType>? = nil
     var viewModel: FoodListViewModel!
     let bag: DisposeBag = DisposeBag()
+    private lazy var ekkamaiBoldFont: UIFont = {
+        //Family: Ekkamai New Font names: ["EkkamaiNew-Regular", "EkkamaiNew-Thin", "EkkamaiNew-Bold"]
+        guard let customFont = UIFont(name: "EkkamaiNew-Bold", size: 18) else {
+            fatalError("Custom font not found")
+        }
+        return customFont
+    }()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, viewModel: FoodListViewModel) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -75,12 +82,8 @@ final class FoodListViewController: UIViewController {
         }
         
         func setUpStyleOfNavigationBar() {
-            //Family: Ekkamai New Font names: ["EkkamaiNew-Regular", "EkkamaiNew-Thin", "EkkamaiNew-Bold"]
-            guard let customFont = UIFont(name: "EkkamaiNew-Bold", size: 18) else {
-                fatalError("Custom font not found")
-            }
             let label = UILabel(frame: .init(x: 0, y: 0, width: 200, height: 20))
-            label.font = customFont
+            label.font = ekkamaiBoldFont
             label.textAlignment = .center
             label.text = viewModel.output.getTitle()
             navigationItem.titleView = label
@@ -90,8 +93,12 @@ final class FoodListViewController: UIViewController {
     private func updateNavBarInSearchStatus() {
         let widthOfBar = UIScreen.main.bounds.width
         let searchBarWidth = widthOfBar - 60
-        let searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, searchBarWidth, 18))
+        let searchBar: UISearchBar = UISearchBar(frame: CGRectMake(0, 0, searchBarWidth, 18))
         searchBar.placeholder = "Wording..."
+        searchBar.returnKeyType = .search
+        searchBar.becomeFirstResponder()
+        searchBar.searchTextField.font = ekkamaiBoldFont
+        searchBar.searchTextField.rx.text.orEmpty.bind(to: viewModel.input.inputSearchText).disposed(by: bag)
         setUpRightItem()
         guard let navigationBar = navigationController?.navigationBar else {
             return
@@ -138,7 +145,7 @@ final class FoodListViewController: UIViewController {
             var snapshot = NSDiffableDataSourceSnapshot<FoodListSectionType, FoodListItemType>()
             snapshot.appendSections([section])
             snapshot.appendItems(section.items, toSection: section)
-            self.dataSource?.apply(snapshot)
+            self.dataSource?.applySnapshotUsingReloadData(snapshot)
         }).disposed(by: bag)
     }
 }
@@ -146,5 +153,11 @@ final class FoodListViewController: UIViewController {
 extension FoodListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension FoodListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

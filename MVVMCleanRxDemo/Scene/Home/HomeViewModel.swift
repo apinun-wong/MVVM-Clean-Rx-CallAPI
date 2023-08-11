@@ -59,16 +59,32 @@ final class HomeViewModelImpl: HomeViewModel {
         let foodListComplete = getFoodListEvent.elements()
         let _ = getFoodListEvent.errors()
         
-        updateTypeOfFood = foodListComplete
+        foodListComplete
             .map({ items in
+                var itemsMutable = items
+                var allItems: [FoodData] = []
+                for item in items {
+                    allItems.append(contentsOf: item.data)
+                }
+                let allItem = FoodModelResponse(id: -1,
+                                                type: .mainDish,
+                                                typeName: "All",
+                                                data: allItems)
+                itemsMutable.insert(allItem, at: 0)
+                return itemsMutable
+            }).bind(to: items)
+            .disposed(by: bag)
+        
+        updateTypeOfFood = items
+            .map { foodResponseList in
                 var menuItems = [HomeItemType]()
-                for (index, item) in items.enumerated() {
+                for (index, item) in foodResponseList.enumerated() {
                     menuItems.append(HomeItemType(id: "\(index)", title: item.typeName))
                 }
                 return HomeSectionType(id: 0, item: menuItems)
-            })
+            }
             .asDriver(onErrorDriveWith: .empty())
-        
+            
         foodListComplete
             .bind(to: items)
             .disposed(by: bag)
