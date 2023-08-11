@@ -7,6 +7,7 @@ target 'MVVMCleanRxDemo' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SwiftyJSON'
+  pod 'MBProgressHUD', '~> 1.2.0'
 
   # Pods for MVVMCleanRxDemo
 

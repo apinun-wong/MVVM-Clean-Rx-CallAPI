@@ -37,23 +37,81 @@ final class FoodListViewController: UIViewController {
     }
     
     private func setUpNavigation() {
-        //Family: Ekkamai New Font names: ["EkkamaiNew-Regular", "EkkamaiNew-Thin", "EkkamaiNew-Bold"]
-        guard let customFont = UIFont(name: "EkkamaiNew-Bold", size: 18) else {
-            fatalError("Custom font not found")
+        updateNavBarInNormalStatus()
+    }
+    
+    @objc private func searchIconPressed(sender: UIButton) {
+        updateNavBarInSearchStatus()
+    }
+    
+    @objc private func closeIconPressed(sender: UIButton) {
+        updateNavBarInNormalStatus()
+    }
+    
+    private func updateNavBarInNormalStatus() {
+        setUpStyleOfNavigationBar()
+        setUpIconSearchInRightBar()
+        setUpIconSearchInLeftBar()
+        func setUpIconSearchInRightBar() {
+            let iconButton = UIButton(type: .custom)
+            let search = UIImage(systemName: "magnifyingglass")
+            iconButton.setImage(search, for: .normal)
+            iconButton.tintColor = .blue
+            iconButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            iconButton.addTarget(self, action: #selector(self.searchIconPressed(sender:)), for: .touchUpInside)
+            let iconBarButtonItem = UIBarButtonItem(customView: iconButton)
+            navigationItem.rightBarButtonItem = iconBarButtonItem
         }
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [.font: customFont]
         
-        //backbutton
-        let backButtonAppearance = UIBarButtonItemAppearance()
-        backButtonAppearance.normal.titleTextAttributes = [.font: customFont]
-        appearance.backButtonAppearance = backButtonAppearance
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "กลับ", style: .plain, target: nil, action: nil)
+        func setUpIconSearchInLeftBar() {
+            let iconButton = UIButton(type: .custom)
+            let search = UIImage(systemName: "magnifyingglass")
+            iconButton.setImage(search, for: .normal)
+            iconButton.tintColor = .blue
+            iconButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            iconButton.addTarget(self, action: #selector(self.searchIconPressed(sender:)), for: .touchUpInside)
+            let iconBarButtonItem = UIBarButtonItem(customView: iconButton)
+            navigationItem.rightBarButtonItem = iconBarButtonItem
+        }
         
-        //set up config to navigation controller
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        func setUpStyleOfNavigationBar() {
+            //Family: Ekkamai New Font names: ["EkkamaiNew-Regular", "EkkamaiNew-Thin", "EkkamaiNew-Bold"]
+            guard let customFont = UIFont(name: "EkkamaiNew-Bold", size: 18) else {
+                fatalError("Custom font not found")
+            }
+            let label = UILabel(frame: .init(x: 0, y: 0, width: 200, height: 20))
+            label.font = customFont
+            label.textAlignment = .center
+            label.text = viewModel.output.getTitle()
+            navigationItem.titleView = label
+        }
+    }
+    
+    private func updateNavBarInSearchStatus() {
+        let widthOfBar = UIScreen.main.bounds.width
+        let searchBarWidth = widthOfBar - 60
+        let searchBar:UISearchBar = UISearchBar(frame: CGRectMake(0, 0, searchBarWidth, 18))
+        searchBar.placeholder = "Wording..."
+        setUpRightItem()
+        guard let navigationBar = navigationController?.navigationBar else {
+            return
+        }
+        UIView.transition(with: navigationBar,
+                          duration: 0.5, options: .transitionCrossDissolve,
+                          animations: {
+            self.navigationItem.titleView = searchBar
+        }, completion: nil)
+        
+        func setUpRightItem() {
+            let iconButton = UIButton(type: .custom)
+            let search = UIImage(systemName: "xmark.circle")
+            iconButton.setImage(search, for: .normal)
+            iconButton.tintColor = .red
+            iconButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            iconButton.addTarget(self, action: #selector(self.closeIconPressed(sender:)), for: .touchUpInside)
+            let iconBarButtonItem = UIBarButtonItem(customView: iconButton)
+            navigationItem.rightBarButtonItem = iconBarButtonItem
+        }
     }
     
     private func setUpTableView() {

@@ -25,6 +25,8 @@
 		1C41B6602A8612EE0058E5C6 /* FoodListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41B65E2A8612EE0058E5C6 /* FoodListItemTableViewCell.swift */; };
 		1C41B6612A8612EE0058E5C6 /* FoodListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C41B65F2A8612EE0058E5C6 /* FoodListItemTableViewCell.xib */; };
 		1C41B6642A861DE40058E5C6 /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41B6632A861DE40058E5C6 /* FontUtils.swift */; };
+		1C41B6672A8637050058E5C6 /* ProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41B6662A8637050058E5C6 /* ProgressHud.swift */; };
+		1C41B6692A863ABA0058E5C6 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C41B6682A863ABA0058E5C6 /* ActivityIndicator.swift */; };
 		1C85AC1C2A8369830001B43D /* FoodItemsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC1B2A8369830001B43D /* FoodItemsListRequest.swift */; };
 		1C85AC1F2A8369D00001B43D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC1E2A8369D00001B43D /* Configuration.swift */; };
 		1C85AC222A8378A50001B43D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85AC212A8378A50001B43D /* APIManager.swift */; };
@@ -85,6 +87,8 @@
 		1C41B65E2A8612EE0058E5C6 /* FoodListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListItemTableViewCell.swift; sourceTree = "<group>"; };
 		1C41B65F2A8612EE0058E5C6 /* FoodListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodListItemTableViewCell.xib; sourceTree = "<group>"; };
 		1C41B6632A861DE40058E5C6 /* FontUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontUtils.swift; sourceTree = "<group>"; };
+		1C41B6662A8637050058E5C6 /* ProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHud.swift; sourceTree = "<group>"; };
+		1C41B6682A863ABA0058E5C6 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1C85AC1B2A8369830001B43D /* FoodItemsListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsListRequest.swift; sourceTree = "<group>"; };
 		1C85AC1E2A8369D00001B43D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1C85AC212A8378A50001B43D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -217,6 +221,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1C41B6652A8636F90058E5C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C41B6662A8637050058E5C6 /* ProgressHud.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1C85AC192A83696D0001B43D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +317,7 @@
 		1CC0F6032A82232C008F5E51 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1C41B6682A863ABA0058E5C6 /* ActivityIndicator.swift */,
 				1CC0F6042A822338008F5E51 /* Rx-Extension.swift */,
 				1CD38EC12A84F8E500D9FB5A /* UICollectionView+Extension.swift */,
 			);
@@ -331,6 +344,7 @@
 		1CC0F60C2A825364008F5E51 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1C41B6652A8636F90058E5C6 /* View */,
 				1C41B6622A861DDB0058E5C6 /* Utils */,
 				1C85AC202A8376B60001B43D /* Network */,
 				1CC0F60F2A825414008F5E51 /* Request.swift */,
@@ -551,6 +565,7 @@
 				1C0457D72A81F73700922B48 /* HomeViewController.swift in Sources */,
 				1CC0F6092A82509F008F5E51 /* FoodModelResponse.swift in Sources */,
 				1C0457D32A81F73700922B48 /* AppDelegate.swift in Sources */,
+				1C41B6692A863ABA0058E5C6 /* ActivityIndicator.swift in Sources */,
 				1CC0F60B2A82533F008F5E51 /* FoodType.swift in Sources */,
 				1CC0F5FF2A821CAE008F5E51 /* FoodListViewController.swift in Sources */,
 				1C41B6642A861DE40058E5C6 /* FontUtils.swift in Sources */,
@@ -568,6 +583,7 @@
 				1C85AC242A837FEB0001B43D /* DataParser.swift in Sources */,
 				1C0457D52A81F73700922B48 /* SceneDelegate.swift in Sources */,
 				1C41B6602A8612EE0058E5C6 /* FoodListItemTableViewCell.swift in Sources */,
+				1C41B6672A8637050058E5C6 /* ProgressHud.swift in Sources */,
 				1CD38EC22A84F8E500D9FB5A /* UICollectionView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

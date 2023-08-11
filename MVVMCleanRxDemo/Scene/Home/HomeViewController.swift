@@ -54,6 +54,18 @@ class HomeViewController: UIViewController {
             snapshot.appendItems(section.items)
             self.dataSource?.apply(snapshot)
         }).disposed(by: bag)
+        viewModel.output.isLoading.drive(onNext: { [weak self] isLoading in
+            guard let self else { return }
+            
+            guard let rootView = self.navigationController?.view else {
+                return
+            }
+            if isLoading {
+                ProgressHudManager.show(in: rootView)
+            } else {
+                ProgressHudManager.hide(in: rootView)
+            }
+        }).disposed(by: bag)
     }
 }
 
@@ -78,9 +90,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
     private func routeToNextPage(indexPath: IndexPath) {
         let datas = self.viewModel.output.getItemsFromMenu(index: indexPath.row)
-        let viewModel = FoodListViewModelImpl(data: datas)
+        let title = self.viewModel.output.getTitleFromMenu(index: indexPath.row)
+        let viewModel = FoodListViewModelImpl(data: datas, title: title)
         let vc = FoodListViewController(nibName: "FoodListViewController", bundle: nil, viewModel: viewModel)
-        vc.title = self.viewModel.output.getTitleFromMenu(index: indexPath.row)
+        let buttonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        buttonItem.tintColor = .black
+        navigationItem.backBarButtonItem = buttonItem
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -15,6 +15,7 @@ protocol FoodListInput {
 
 protocol FoodListOutput {
     var updateTypeOfFood: Driver<FoodListSectionType> { get set }
+    func getTitle() -> String
 }
 
 protocol FoodListViewModel: FoodListInput, FoodListOutput {
@@ -35,10 +36,12 @@ final class FoodListViewModelImpl: FoodListViewModel {
     var updateTypeOfFood: Driver<FoodListSectionType> = .empty()
     
     var items: BehaviorRelay<[FoodData]> = .init(value: [])
+    private var title: String = ""
     
-    init(data: [FoodData]) {
+    init(data: [FoodData],
+         title: String) {
         items = .init(value: data)
-        
+        self.title = title
         updateTypeOfFood = viewDidLoad
             .withLatestFrom(items)
             .map({ items in
@@ -53,5 +56,9 @@ final class FoodListViewModelImpl: FoodListViewModel {
                 return FoodListSectionType(id: 0, item: foodListItems)
             })
             .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func getTitle() -> String {
+        return title
     }
 }
