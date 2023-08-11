@@ -60,7 +60,7 @@ final class HomeViewModelImpl: HomeViewModel {
         let _ = getFoodListEvent.errors()
         
         foodListComplete
-            .map({ items in
+            .map{ items in
                 var itemsMutable = items
                 var allItems: [FoodData] = []
                 for item in items {
@@ -72,10 +72,11 @@ final class HomeViewModelImpl: HomeViewModel {
                                                 data: allItems)
                 itemsMutable.insert(allItem, at: 0)
                 return itemsMutable
-            }).bind(to: items)
+            }.bind(to: items)
             .disposed(by: bag)
         
         updateTypeOfFood = items
+            .observe(on: MainScheduler.instance)
             .map { foodResponseList in
                 var menuItems = [HomeItemType]()
                 for (index, item) in foodResponseList.enumerated() {
