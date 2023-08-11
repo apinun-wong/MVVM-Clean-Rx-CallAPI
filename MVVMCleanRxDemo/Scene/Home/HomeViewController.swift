@@ -77,8 +77,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     private func routeToNextPage(indexPath: IndexPath) {
-        let datas = viewModel.output.getItemsFromMenu(index: indexPath.row)
-        let vc = FoodListViewController(nibName: "FoodListViewController", bundle: nil)
+        let datas = self.viewModel.output.getItemsFromMenu(index: indexPath.row)
+        let viewModel = FoodListViewModelImpl(data: datas)
+        let vc = FoodListViewController(nibName: "FoodListViewController", bundle: nil, viewModel: viewModel)
+        vc.title = self.viewModel.output.getTitleFromMenu(index: indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -17,6 +17,7 @@ protocol HomeInput {
 protocol HomeOutput {
     var updateTypeOfFood: Driver<HomeSectionType> { get set }
     func getItemsFromMenu(index: Int) -> [FoodData]
+    func getTitleFromMenu(index: Int) -> String
 }
 
 protocol HomeViewModel: HomeInput, HomeOutput {
@@ -72,5 +73,10 @@ final class HomeViewModelImpl: HomeViewModel {
     func getItemsFromMenu(index: Int) -> [FoodData] {
         let section = items.value[index]
         return section.data
+    }
+    
+    func getTitleFromMenu(index: Int) -> String {
+        let section = items.value[index]
+        return section.typeName
     }
 }

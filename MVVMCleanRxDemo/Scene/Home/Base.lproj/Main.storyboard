@@ -9,6 +9,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="EkkamaiNew-Bold.ttf">
+            <string>EkkamaiNew-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="me1-L4-BLG">
@@ -38,7 +43,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qo-CO-4CK">
-                                <rect key="frame" x="16" y="103" width="361" height="136"/>
+                                <rect key="frame" x="16" y="115" width="361" height="136"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1CU-ro-UTR">
                                         <rect key="frame" x="8" y="8" width="345" height="120"/>
@@ -48,7 +53,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj3-zU-ZOf">
                                                         <rect key="frame" x="8" y="8" width="329" height="48"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="EkkamaiNew-Bold" family="Ekkamai New" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -64,10 +69,17 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-Bt-X9F">
                                                 <rect key="frame" x="0.0" y="64" width="345" height="56"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ข้อมูล Calories ของอาหารแต่ละชนิดในไทย โดยข้อมูลนี้รวบรวมข้อมูลมาจาก Chat GPT" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaZ-fu-s2v">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaZ-fu-s2v">
                                                         <rect key="frame" x="8" y="0.0" width="329" height="48"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="ข้อมูล Calories ของอาหารแต่ละชนิดในไทย โดยข้อมูลนี้รวบรวมข้อมูลมาจาก Chat GPT">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="16" name="EkkamaiNew-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -80,7 +92,12 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.09064094387755102" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="0.099702380952380959" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
@@ -90,9 +107,14 @@
                                     <constraint firstAttribute="trailing" secondItem="1CU-ro-UTR" secondAttribute="trailing" constant="8" id="Jll-Gx-UTi"/>
                                     <constraint firstAttribute="bottom" secondItem="1CU-ro-UTR" secondAttribute="bottom" constant="8" id="PH3-Po-gIG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cbq-6M-7Ao">
-                                <rect key="frame" x="16" y="247" width="361" height="605"/>
+                                <rect key="frame" x="16" y="263" width="361" height="589"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1ix-W8-lpo">
                                     <size key="itemSize" width="128" height="128"/>
@@ -116,8 +138,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8qo-CO-4CK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="22P-Tf-uHp"/>
-                            <constraint firstItem="Cbq-6M-7Ao" firstAttribute="top" secondItem="8qo-CO-4CK" secondAttribute="bottom" constant="8" symbolic="YES" id="Gx3-kt-8Ax"/>
-                            <constraint firstItem="8qo-CO-4CK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IB5-Sv-y4j"/>
+                            <constraint firstItem="Cbq-6M-7Ao" firstAttribute="top" secondItem="8qo-CO-4CK" secondAttribute="bottom" constant="12" id="Gx3-kt-8Ax"/>
+                            <constraint firstItem="8qo-CO-4CK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="IB5-Sv-y4j"/>
                             <constraint firstItem="Cbq-6M-7Ao" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Mpx-Sd-fkZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8qo-CO-4CK" secondAttribute="trailing" constant="16" id="XxY-Xc-o2B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cbq-6M-7Ao" secondAttribute="trailing" constant="16" id="ZjR-M1-1lV"/>

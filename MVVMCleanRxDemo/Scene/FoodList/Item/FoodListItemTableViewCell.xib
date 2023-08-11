@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="EkkamaiNew-Bold.ttf">
+            <string>EkkamaiNew-Bold</string>
+        </array>
+        <array key="EkkamaiNew-Regular.ttf">
+            <string>EkkamaiNew-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="182" id="KGk-i7-Jjw" customClass="FoodListItemTableViewCell" customModule="MVVMCleanRxDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="182"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="182"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hYz-WE-Oux">
+                        <rect key="frame" x="16" y="8" width="297" height="166"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="hfF-kg-HdB">
+                                <rect key="frame" x="0.0" y="0.0" width="297" height="31.666666666666668"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-FB-Kft">
+                                        <rect key="frame" x="8" y="7.9999999999999991" width="281" height="15.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="EkkamaiNew-Bold" family="Ekkamai New" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ONG-FB-Kft" secondAttribute="bottom" constant="8" id="ADZ-qM-9Pi"/>
+                                    <constraint firstItem="ONG-FB-Kft" firstAttribute="leading" secondItem="hfF-kg-HdB" secondAttribute="leading" constant="8" id="lKG-yS-mCJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ONG-FB-Kft" secondAttribute="trailing" constant="8" id="qZx-d2-IR4"/>
+                                    <constraint firstItem="ONG-FB-Kft" firstAttribute="top" secondItem="hfF-kg-HdB" secondAttribute="top" constant="8" id="z6X-B5-r4B"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="18z-bf-tGz">
+                                <rect key="frame" x="0.0" y="31.666666666666664" width="297" height="84.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMR-FT-JWe">
+                                        <rect key="frame" x="8" y="8" width="281" height="68.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="EkkamaiNew-Regular" family="Ekkamai New" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="CMR-FT-JWe" firstAttribute="leading" secondItem="18z-bf-tGz" secondAttribute="leading" constant="8" id="BM5-XA-BlP"/>
+                                    <constraint firstAttribute="bottom" secondItem="CMR-FT-JWe" secondAttribute="bottom" constant="8" id="dFR-pa-HpX"/>
+                                    <constraint firstAttribute="trailing" secondItem="CMR-FT-JWe" secondAttribute="trailing" constant="8" id="hPr-IN-NzZ"/>
+                                    <constraint firstItem="CMR-FT-JWe" firstAttribute="top" secondItem="18z-bf-tGz" secondAttribute="top" constant="8" id="iM4-YJ-buj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="6og-0v-fM3">
+                                <rect key="frame" x="0.0" y="116" width="297" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKC-F1-WuZ">
+                                        <rect key="frame" x="8" y="8" width="281" height="34"/>
+                                        <fontDescription key="fontDescription" name="EkkamaiNew-Regular" family="Ekkamai New" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AKC-F1-WuZ" firstAttribute="leading" secondItem="6og-0v-fM3" secondAttribute="leading" constant="8" id="FWy-SR-x2A"/>
+                                    <constraint firstAttribute="trailing" secondItem="AKC-F1-WuZ" secondAttribute="trailing" constant="8" id="fpb-Wf-mqG"/>
+                                    <constraint firstItem="AKC-F1-WuZ" firstAttribute="top" secondItem="6og-0v-fM3" secondAttribute="top" constant="8" id="qoM-Sl-vEc"/>
+                                    <constraint firstAttribute="bottom" secondItem="AKC-F1-WuZ" secondAttribute="bottom" constant="8" id="tEg-kF-ssL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="hYz-WE-Oux" secondAttribute="bottom" constant="8" id="4GJ-Jy-XCa"/>
+                    <constraint firstItem="hYz-WE-Oux" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7na-qU-aPa"/>
+                    <constraint firstAttribute="trailing" secondItem="hYz-WE-Oux" secondAttribute="trailing" constant="16" id="e5d-a6-aOW"/>
+                    <constraint firstItem="hYz-WE-Oux" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="i65-1m-MKU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="calloriesLabel" destination="AKC-F1-WuZ" id="zWH-3K-Rqn"/>
+                <outlet property="foodNameLabel" destination="ONG-FB-Kft" id="cXV-5T-bwM"/>
+                <outlet property="portionLabel" destination="CMR-FT-JWe" id="0tO-6q-u9D"/>
+            </connections>
+            <point key="canvasLocation" x="136.64122137404578" y="36.619718309859159"/>
+        </tableViewCell>
+    </objects>
+</document>
